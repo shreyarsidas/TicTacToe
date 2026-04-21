@@ -1,30 +1,21 @@
 package org.example;
-import java.util.Scanner;
-
-/**
- * TicTacToe
- * UC3: Accept user slot input (1–9)
- */
 public class TicTacToe {
 
-    /**
-     * Entry point of the program
-     */
     public static void main(String[] args) {
 
-        int slot = getUserSlot();
-        System.out.println("Slot entered: " + slot);
+        int slot = 7;
+
+        System.out.println("Row: " + getRowFromSlot(slot));
+        System.out.println("Column: " + getColFromSlot(slot));
     }
 
-    /**
-     * Reads an integer slot value from the user
-     */
-    static int getUserSlot() {
-        Scanner sc = new Scanner(System.in);
+    // Converts slot (1–9) → row (0–2)
+    static int getRowFromSlot(int slot) {
+        return (slot - 1) / 3;
+    }
 
-        System.out.print("Enter a slot number (1-9): ");
-        int slot = sc.nextInt();
-
-        return slot;
+    // Converts slot (1–9) → column (0–2)
+    static int getColFromSlot(int slot) {
+        return (slot - 1) % 3;
     }
 }
